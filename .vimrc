@@ -1,29 +1,51 @@
+" Sets how many lines of history VIM has to remember
+set history=500
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Height of the command bar
+set cmdheight=1
+
+" Highlight search results
+set hlsearch
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
 " enable syntax highlighting
 syntax enable
 
-" show line numbers
-" set number
-
-" set tabs to have 4 spaces
-set ts=4
-
 " indent when moving to the next line while writing code
 set autoindent
+set smartindent 
 
-"" expand tabs into spaces
-"set expandtab
-"
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
 " when using the >> or << commands, shift lines by 4 spaces
 set shiftwidth=4
+" set tabs to have 4 spaces
+set ts=4
 
 " show a visual line under the cursor's current line
 set cursorline
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
-
-" enable all Python syntax highlighting features
-" let python_highlight_all = 1
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -40,8 +62,6 @@ Plugin 'posva/vim-vue'
 call vundle#end() " required
 
 "NERD Tree commands
-"open NERDTree automatically when vim starts up
-"autocmd vimenter * NERDTree
 "close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
