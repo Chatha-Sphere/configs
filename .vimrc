@@ -3,7 +3,7 @@ set history=500
 
 " Enable filetype plugins
 filetype plugin on
-filetype indent on
+" filetype indent on
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -27,9 +27,9 @@ set ffs=unix,dos,mac
 syntax enable
 
 " indent when moving to the next line while writing code
-set autoindent
 set smartindent 
-
+" set autoindent
+"
 " Use spaces instead of tabs
 set expandtab
 
@@ -58,6 +58,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-airline/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'posva/vim-vue'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end() " required
 
@@ -70,4 +71,5 @@ let g:vue_disable_pre_processors=1
 autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css.less.pug
 "yaml funs
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=4 expandtab indentkeys-=0# indentkeys-=<:>
+au BufNewFile,BufRead *.kt set filetype=kotlin
